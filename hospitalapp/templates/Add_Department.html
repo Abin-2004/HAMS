@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% extends 'dashboard.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post" action="{% url 'save_department' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="container-fluid pt-4 px-4">
+                <div class="row g-4" >
+                    <div class="col-sm-12 col-xl-12">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <h6 class="mb-4">Floating Label</h6>
+                            <h6>Department Name</h6>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="Department Name" name="Department_Name">
+                                <label for="floatingInput">Department Name</label>
+                            </div>
+                            <h6>Description</h6>
+                            <div class="form-floating mb-3" >
+                                <textarea class="form-control" placeholder="Description" id="floatingTextarea" style="height: 150px;" name="Department_Description"></textarea>
+                                <label for="floatingTextarea">Description</label>
+                            </div>
+                            <h6>Department Image</h6>
+                            <div class="mb-3">
+                                <input class="form-control bg-dark" type="file" id="formFile" placeholder="Department Image" name="Department_Image">
+                            </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </form>
+</body>
+</html>
+{% endblock %}
