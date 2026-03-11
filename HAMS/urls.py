@@ -19,10 +19,12 @@ from django.urls import path,include
 import hospitalapp.urls
 from HAMS import settings
 from django.contrib.staticfiles.urls import static,staticfiles_urlpatterns
+import webapp.urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('hospital/',include(hospitalapp.urls)),
+    path('appointment/',include(webapp.urls)),
 
 ]
 urlpatterns += staticfiles_urlpatterns()

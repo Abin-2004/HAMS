@@ -7,7 +7,7 @@
     <title>Title</title>
 </head>
 <body>
-     <form method="post" action="{% url 'save_doctor' %}" enctype="multipart/form-data">
+     <form method="post" action="{% url 'update_doctor' doctor_id=data.id %}" enctype="multipart/form-data">
          {% csrf_token %}
          <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
@@ -16,13 +16,13 @@
                             <h6 class="mb-4">Floating Label</h6>
                             <h6>Doctor Name</h6>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" placeholder="Doctor Name" name="Doctor_Name">
+                                <input type="text" class="form-control" placeholder="Doctor Name" name="Doctor_Name" value="{{ data.Doctor_Name }}">
                                 <label for="floatingInput">Doctor Name</label>
                             </div>
                             <h6>Department</h6>
                             <div class="form-floating mb-3">
                                 <select class="form-control" id="floatingInput" name="Department">
-                                    <option>Select the Department</option>
+                                    <option>{{ data.Department }}</option>
                                        {% for i in department %}
                                          <option>{{ i.Department_Name }}</option>
                                        {% endfor %}
@@ -31,26 +31,27 @@
                             </div>
                             <h6>Email</h6>
                             <div class="form-floating mb-3">
-                                <input type="email" class="form-control" placeholder="Email" name="Email">
+                                <input type="email" class="form-control" placeholder="Email" name="Email" value="{{ data.Email }}">
                                 <label for="floatingInput">Email</label>
                             </div>
                             <h6>Phone Number</h6>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control"  placeholder="Phone Number" name="Phone">
+                                <input type="text" class="form-control"  placeholder="Phone Number" name="Phone" value="{{ data.Phone }}">
                                 <label for="floatingInput">Phone Number</label>
                             </div>
                             <h6>Qualification</h6>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" placeholder="Qualification" name="Qualification">
+                                <input type="text" class="form-control" placeholder="Qualification" name="Qualification" value="{{ data.Qualification }}">
                                 <label for="floatingInput">Qualification</label>
                             </div>
                             <h6>Experience</h6>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" placeholder="Experience" name="Experience">
+                                <input type="text" class="form-control" placeholder="Experience" name="Experience" value="{{ data.Experience }}">
                                 <label for="floatingInput">Experience</label>
                             </div>
                             <h6>Doctor Image</h6>
                             <div class="mb-3">
+                                <img src="{{ data.Image.url }}" width="100px" height="100px">
                                 <input class="form-control bg-dark" type="file"  placeholder="Doctor Image" name="Image">
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
