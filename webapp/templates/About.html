@@ -14,7 +14,7 @@
   <meta name="author" content="" />
   <link rel="shortcut icon" href="{% static 'web/images/favicon.png' %}" type="">
 
-  <title> Orthoc </title>
+  <title> CareConnect </title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="{% static 'web/css/bootstrap.css' %}" />
@@ -44,7 +44,7 @@
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="index.html">
             <span>
-              Orthoc
+              CARECONNECT
             </span>
           </a>
 
@@ -54,20 +54,20 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="index.html">Home </a>
-              </li>
               <li class="nav-item active">
-                <a class="nav-link" href="about.html"> About <span class="sr-only">(current)</span> </a>
+                <a class="nav-link" href="{% url 'home' %}">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="departments.html">Departments</a>
+                <a class="nav-link" href="{% url 'about' %}"> About <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="doctors.html">Doctors</a>
+                <a class="nav-link" href="{% url 'all_departments' %}">Departments</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact Us</a>
+                <a class="nav-link" href="{% url 'doctors' %}">Doctors</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
               </li>
               <form class="form-inline">
                 <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
@@ -100,10 +100,8 @@
               </h2>
             </div>
             <p>
-              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-              in some form, by injected humour, or randomised words which don't look even slightly believable. If you
-              are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
-              the middle of text. All
+              Our Hospital Appointment Management System is designed to simplify and enhance the healthcare experience for both patients and medical professionals. We aim to provide a seamless platform where patients can easily book, manage, and track their appointments with doctors in a convenient and time-efficient manner.
+              The system helps hospitals reduce manual work, minimize waiting times, and improve overall service quality. With a user-friendly interface, patients can view doctor availability, schedule appointments, and receive timely updates, all in one place.
             </p>
             <a href="">
               Read More

@@ -22,8 +22,11 @@ urlpatterns = [
     path('edit_doctor/<int:doctor_id>/',views.edit_doctor,name='edit_doctor'),
     path('update_doctor/<int:doctor_id>/',views.update_doctor,name='update_doctor'),
 
-    #AAdmin
+    #Admin
     path('admin_login_page/',views.admin_login_page,name='admin_login_page'),
     path('admin_login/',views.admin_login,name='admin_login'),
     path('admin_logout/',views.admin_logout,name='admin_logout'),
+
+    #Contact
+    path('contact_data/',views.contact_data,name='contact_data'),
 ]

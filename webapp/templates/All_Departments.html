@@ -14,7 +14,7 @@
   <meta name="author" content="" />
   <link rel="shortcut icon" href="{% static 'web/images/favicon.png' %}" type="">
 
-  <title> Orthoc </title>
+  <title> CareConnect </title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="{% static 'web/css/bootstrap.css' %}" />
@@ -49,7 +49,7 @@
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="index.html">
             <span>
-              Orthoc
+              CARECONNECT
             </span>
           </a>
 
@@ -59,20 +59,20 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="index.html">Home </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.html"> About</a>
-              </li>
               <li class="nav-item active">
-                <a class="nav-link" href="departments.html">Departments <span class="sr-only">(current)</span> </a>
+                <a class="nav-link" href="{% url 'home' %}">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="doctors.html">Doctors</a>
+                <a class="nav-link" href="{% url 'about' %}"> About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact Us</a>
+                <a class="nav-link" href="{% url 'all_departments' %}">Departments <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'doctors' %}">Doctors</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
               </li>
               <form class="form-inline">
                 <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
@@ -97,21 +97,24 @@
             Our Departments
           </h2>
           <p>
-            Asperiores sunt consectetur impedit nulla molestiae delectus repellat laborum dolores doloremque accusantium
+            Our department is dedicated to delivering efficient, patient-centered healthcare services with advanced technology and compassionate care.
           </p>
         </div>
       <div class="row">
        {% for i in departments %}
          <div class="col-md-3">
             <div class="box">
-                <a>
+                <a href="{% url 'filtered_doctors' dep_name=i.Department_Name %}">
                     <img src="{{ i.Department_Image.url }}" alt="" height="200px" width="250px">
                 </a>
+                <br>
 
               <div class="detail-box">
-                 <a href="#">
+                 <a href="{% url 'filtered_doctors' dep_name=i.Department_Name %}">
                     {{ i.Department_Name }}
                  </a>
+                  <br>
+                  <br>
                  <p>
                     {{ i.Department_Description }}
                  </p>

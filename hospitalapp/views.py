@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from hospitalapp.models import DepartmentDb,DoctorDb
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
+from webapp.models import ContactDb
 
 # Create your views here.
 
@@ -130,3 +131,8 @@ def admin_logout(request):
     del request.session['username']
     del request.session['password']
     return redirect(admin_login_page)
+
+#CONTACT
+def contact_data(request):
+    data = ContactDb.objects.all()
+    return render(request,'Contact_Data.html',{'data':data})
